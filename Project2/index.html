@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+
+        Name: <input type="text" ng-model="name"><br>
+
+        Age: <input type="text" ng-model="age"><br>
+
+        StudentID: <input type="text" ng-model="student_id"><br>
+
+        Information: {{"Your name are " + name + " and " + age + " years old and your student id are " + student_id}}<br>
+        
+        <!--Directive name in tag are this-is-a-name -->
+        <div my-directive></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

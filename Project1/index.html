@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+</head>
+<body>
+
+    <!--Khai báo vùng AngularJS-->
+    <div ng-app="">
+
+        <!--Gắn biến name vào input để thay đổi-->
+        <p>Name : <input type="text" ng-model="name"></p>
+
+        <!-- {{ expression }} -->
+        <p>My first expression: {{ 5 + 5 }}</p>
+
+        <!--Gắn biến name vào h1 để hiển thị-->
+        <h1>Hello {{name}}</h1>
+
+        <!--Khởi tạo age-->
+        <p ng-init="age=12"> {{age}} </p>
+
+        <!-- data-ng- and ng- is the same, but data-ng- follow W3C standard-->
+        <p data-ng-init="weight=24"> {{weight}} </p>
+    </div>
+</body>
+</html>

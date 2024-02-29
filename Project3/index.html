@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+
+    <style>
+        .error {
+          color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div ng-app="myApp">
+        <div ng-init="fruits = ['Apple', 'Banana', 'Orange']"></div>
+        <ul>
+            <li ng-repeat="fruit in fruits">
+                {{fruit}}
+            </li>
+        </ul>
+
+        <hr>
+
+        <element-directive></element-directive>
+
+        <div attribute-directive></div>
+
+        <div class="class-directive"></div>
+
+        <!-- directive: comment-directive -->
+
+        <hr>
+
+        <form name="myForm" novalidate>
+
+            <label>Name:</label>
+            <input type="text" name="name" ng-model="name" required>
+            <span class="error" ng-show="myForm.name.$error.required">Name is required!</span>    
+        
+            <br>
+        
+            <label>Email:</label>
+            <input type="email" name="email" ng-model="user.email" required>
+            <span class="error" ng-show="myForm.email.$error.email">Invalid email address!</span>
+        
+            <br>
+        
+            <label>Password:</label>
+            <input type="password" name="password" ng-model="password" required>
+            <span class="error" ng-show="myForm.password.$error.required">Password is required!</span>
+        
+            <br>
+        
+            <label>Phone Number:</label>
+            <input type="tel" name="phoneNumber" ng-model="phoneNumber" ng-pattern="/^[0-9]{10}$/" required>
+            <span class="error" ng-show="myForm.phoneNumber.$error.pattern">Invalid phone number (should be 10 digits)!</span>
+        
+            <br>
+        
+            <label>Age:</label>
+            <input type="number" name="age" ng-model="age" min="18" max="100" required>
+            <span class="error" ng-show="myForm.age.$error.required" >Age is required!</span>
+            <span class="error" ng-show="myForm.age.$error.number" >Invalid age (should be a number)!</span>
+            <span class="error" ng-show="myForm.age.$error.min" >Minimum age required is 18!</span>
+            <span class="error" ng-show="myForm.age.$error.max" >Maximun age required is 100!</span>
+        
+            <br>
+        
+            <label>Website:</label>
+            <input type="url" name="website" ng-model="website" required>
+            <span class="error" ng-show="myForm.website.$error.url" >Invalid URL!</span>
+        
+            <br>
+
+        </form>
+
+        <hr>
+
+        <form name="myForm2" ng-init="myText = 'initialemail@gmail.com'">
+            Email:
+            <input type="email" name="myAddress" ng-model="myText" required>
+            <h1>Status</h1>
+
+            <!--Whether the input field is valid-->
+            <p>Valid: {{myForm2.myAddress.$valid}}</p>
+            
+            <!--Whether the user has interacted with the input field (dirty) or not.-->
+            <p>Dirty: {{myForm2.myAddress.$dirty}}</p>
+
+            <!--Wether user focused and then blurred or not-->
+            <p>Touch: {{myForm2.myAddress.$touched}}</p>
+        </form>
+    </div>  
+
+    <script src="script.js"></script>
+</body>
+</html>

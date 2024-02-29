@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="control">
+    
+    <!--ng-mousemove-->
+    <div>
+        <h1 ng-mousemove="count = count + 1">Mouse over me increase number: {{count}}</h1>
+    </div>
+
+    <hr>
+
+    <!--ng-click-->
+    <div>
+        <button ng-click="count = count + 1">Click me increase number: {{count}}</button>
+    </div>
+
+    <hr>
+
+    <!--$event-->
+    <div>
+        <button ng-click="myFunc($event)">Click me to catch event in Console!</button>
+    </div>
+
+    <hr>
+
+    <!--$event.preventDefault()-->
+    <div>
+        <a href="/error-page" ng-click="handlePreventDefaultClick($event)">Move to another page</a>
+    </div>
+
+    <hr>
+
+    <!--$event.stopPropagation()-->
+    <div ng-click="clickDiv2()" style="width: 100px; height: 50px; background-color: antiquewhite;">
+        DIV2
+        <div ng-click="clickDiv1($event)" style="width: 50px; height: 25px; background-color: chartreuse;">
+            DIV1
+        </div>
+    </div>
+    When click into div1, div2 also got click so it must show 2 alert <br>
+    But when using stopPropagation() for event in div1, alert in div2 not showing.
+
+    <script src="script.js"></script>
+</body>
+</html>

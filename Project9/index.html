@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="control">
+    
+    <!--Using ng-options-->
+    <div>
+        <select ng-model="selectedName" ng-options="x for x in names">
+        </select>
+    </div>
+
+    <!--Using ng-repeat-->
+    <div>
+        <select ng-model="selectedName">
+            <option ng-repeat="x in names">{{x}}</option>
+        </select>
+    </div>
+
+    You choose: {{selectedName}}
+
+    <hr>
+
+    <!--When want choose a object, using ng-value-->
+    <div>
+        <select ng-model="selectedAnimal">
+            <option ng-repeat="animal in animals" ng-value="{{animal}}">{{animal.name}}</option>
+        </select>
+        You choose: {{selectedAnimal}}
+    </div>
+
+    <hr>
+
+    <!--When select key-value-->
+    <div>
+        <select ng-model="selectedCar" ng-options="value.brand for (key, value) in cars">
+        </select>
+        You choose: {{selectedCar}}
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

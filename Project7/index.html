@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="control">
+    USER TABLE: {{data}}
+
+    <hr>
+
+    <div>
+        <h1>GET</h1>
+        Id: <input type="number" ng-model="id"> <br>
+        Result: {{user_by_id}} <br>
+        <button ng-click="getUserById()">Get User</button>
+    </div>
+
+    <hr>
+
+    <div>
+        <h1>ADD</h1>
+        Name: <input type="text" ng-model="name"> <br>
+        Age: <input type="number" ng-model="age"> <br>
+        <button ng-click="addUser()">Add User</button>
+    </div>
+
+    <hr>
+
+    <div>
+        <h1>UPDATE</h1>
+        Id: <input type="number" ng-model="id"> <br>
+        Name: <input type="text" ng-model="name"> <br>
+        Age: <input type="number" ng-model="age"> <br>
+        <button ng-click="updateUser()">Update User</button>
+    </div>
+
+    <hr>
+
+    <div>
+        <h1>DELETE</h1>
+        Id: <input type="number" ng-model="id"> <br>
+        <button ng-click="deleteUser()">Delete User</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
